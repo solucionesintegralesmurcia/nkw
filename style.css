@@ -1,7 +1,8 @@
 :root {
-  --bg: #09111f;
-  --bg-soft: #101b2f;
+  --bg: #07101d;
+  --bg-2: #0b1527;
   --panel: rgba(255, 255, 255, 0.06);
+  --panel-2: rgba(255, 255, 255, 0.04);
   --line: rgba(255, 255, 255, 0.1);
   --white: #ffffff;
   --text-light: #dbe7ff;
@@ -12,31 +13,38 @@
   --primary-dark: #0284c7;
   --accent: #ff9800;
   --accent-dark: #ea7b00;
+  --whatsapp: #25d366;
   --shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
   --radius: 22px;
   --container: 1180px;
-  --transition: 0.3s ease;
+  --transition: 0.25s ease;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  min-width: 0;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 body {
   font-family: "Inter", sans-serif;
   background:
-    radial-gradient(circle at top left, rgba(14, 165, 255, 0.2), transparent 28%),
-    radial-gradient(circle at top right, rgba(255, 152, 0, 0.12), transparent 24%),
-    linear-gradient(180deg, #07101d 0%, #0b1527 100%);
+    radial-gradient(circle at top left, rgba(14, 165, 255, 0.18), transparent 28%),
+    radial-gradient(circle at top right, rgba(255, 152, 0, 0.1), transparent 24%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
   color: var(--white);
   line-height: 1.6;
-  overflow-x: hidden;
 }
 
 img {
@@ -54,7 +62,7 @@ a {
 }
 
 .section {
-  padding: 84px 0;
+  padding: 88px 0;
 }
 
 .section-dark {
@@ -69,26 +77,36 @@ a {
 
 .section-tag,
 .eyebrow {
-  display: inline-block;
-  padding: 8px 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  max-width: 100%;
+  padding: 10px 16px;
   border-radius: 999px;
   background: rgba(14, 165, 255, 0.14);
   color: #8dd9ff;
   border: 1px solid rgba(14, 165, 255, 0.24);
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   font-weight: 700;
   margin-bottom: 18px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  text-align: center;
+  line-height: 1.35;
 }
 
 .section-heading h2 {
   font-size: clamp(2rem, 4vw, 3rem);
   line-height: 1.12;
   margin-bottom: 14px;
+  overflow-wrap: anywhere;
 }
 
 .section-heading p {
   color: var(--text-light);
   font-size: 1.05rem;
+  overflow-wrap: anywhere;
 }
 
 /* HEADER */
@@ -97,22 +115,30 @@ a {
   top: 0;
   z-index: 1000;
   backdrop-filter: blur(14px);
-  background: rgba(7, 16, 29, 0.84);
+  background: rgba(7, 16, 29, 0.9);
   border-bottom: 1px solid var(--line);
 }
 
 .nav {
-  min-height: 78px;
+  min-height: 74px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 18px;
+  gap: 16px;
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
-  flex-shrink: 0;
+  flex-shrink: 1;
+}
+
+.text-brand {
+  font-size: 1.18rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.4px;
+  white-space: nowrap;
 }
 
 .brand-logo {
@@ -121,15 +147,10 @@ a {
   object-fit: contain;
 }
 
-.text-brand {
-  font-size: 1.2rem;
-  font-weight: 800;
-  color: var(--white);
-  letter-spacing: -0.5px;
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 22px;
+  gap: 20px;
 }
 
 .nav-links a {
@@ -159,7 +180,6 @@ a {
   border-radius: 2px;
 }
 
-/* BUTTONS */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -172,7 +192,7 @@ a {
   font-weight: 800;
   border: none;
   transition: var(--transition);
-  box-shadow: 0 14px 34px rgba(14, 165, 255, 0.25);
+  box-shadow: 0 14px 34px rgba(14, 165, 255, 0.24);
   text-align: center;
 }
 
@@ -182,7 +202,7 @@ a {
 
 .btn-secondary {
   background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-  box-shadow: 0 14px 34px rgba(255, 152, 0, 0.25);
+  box-shadow: 0 14px 34px rgba(255, 152, 0, 0.22);
 }
 
 .btn-nav {
@@ -196,7 +216,7 @@ a {
 
 /* HERO */
 .hero {
-  padding: 90px 0 70px;
+  padding: 82px 0 64px;
 }
 
 .hero-grid {
@@ -206,11 +226,18 @@ a {
   align-items: center;
 }
 
+.hero-text,
+.hero-card,
+.hero-card-box {
+  max-width: 100%;
+}
+
 .hero-text h1 {
-  font-size: clamp(2.3rem, 5vw, 4.5rem);
+  font-size: clamp(2.35rem, 5vw, 4.5rem);
   line-height: 1.04;
-  letter-spacing: -1.4px;
+  letter-spacing: -1.2px;
   margin-bottom: 18px;
+  overflow-wrap: anywhere;
 }
 
 .hero-description {
@@ -218,6 +245,7 @@ a {
   color: var(--text-light);
   font-size: 1.05rem;
   margin-bottom: 26px;
+  overflow-wrap: anywhere;
 }
 
 .hero-buttons {
@@ -230,7 +258,7 @@ a {
 .hero-points {
   display: flex;
   flex-wrap: wrap;
-  gap: 18px;
+  gap: 16px;
   list-style: none;
 }
 
@@ -239,6 +267,7 @@ a {
   padding-left: 18px;
   color: #cfe8ff;
   font-weight: 500;
+  overflow-wrap: anywhere;
 }
 
 .hero-points li::before {
@@ -262,7 +291,7 @@ a {
 }
 
 .hero-logo {
-  max-width: 340px;
+  max-width: 320px;
   margin: 0 auto 22px;
 }
 
@@ -287,6 +316,7 @@ a {
 .hero-mini-stats span {
   color: var(--muted);
   font-size: 0.95rem;
+  overflow-wrap: anywhere;
 }
 
 /* TRUST */
@@ -308,6 +338,7 @@ a {
   background: rgba(255, 255, 255, 0.04);
   color: #d7ebff;
   font-weight: 700;
+  overflow-wrap: anywhere;
 }
 
 /* SERVICES */
@@ -338,12 +369,15 @@ a {
 }
 
 .service-card h3 {
-  font-size: 1.25rem;
+  font-size: 1.24rem;
+  line-height: 1.2;
   margin-bottom: 10px;
+  overflow-wrap: anywhere;
 }
 
 .service-card p {
   color: #4b5d7e;
+  overflow-wrap: anywhere;
 }
 
 /* REASONS */
@@ -363,10 +397,12 @@ a {
 .reason-box h3 {
   margin-bottom: 10px;
   font-size: 1.25rem;
+  overflow-wrap: anywhere;
 }
 
 .reason-box p {
   color: var(--text-light);
+  overflow-wrap: anywhere;
 }
 
 /* CTA */
@@ -385,11 +421,13 @@ a {
   font-size: clamp(1.8rem, 4vw, 2.8rem);
   line-height: 1.15;
   margin-bottom: 10px;
+  overflow-wrap: anywhere;
 }
 
 .cta-text p {
   color: var(--text-light);
   max-width: 680px;
+  overflow-wrap: anywhere;
 }
 
 .cta-buttons {
@@ -418,6 +456,7 @@ a {
   cursor: pointer;
   font-weight: 700;
   padding: 20px 0;
+  overflow-wrap: anywhere;
 }
 
 .faq-item summary::-webkit-details-marker {
@@ -427,6 +466,7 @@ a {
 .faq-item p {
   color: var(--text-light);
   padding-bottom: 18px;
+  overflow-wrap: anywhere;
 }
 
 /* CONTACT */
@@ -445,10 +485,12 @@ a {
   font-size: clamp(2rem, 4vw, 3rem);
   line-height: 1.1;
   margin-bottom: 14px;
+  overflow-wrap: anywhere;
 }
 
 .contact-info p {
   color: var(--text-light);
+  overflow-wrap: anywhere;
 }
 
 .contact-cards {
@@ -470,11 +512,13 @@ a {
 
 .contact-card h3 {
   margin-bottom: 8px;
+  overflow-wrap: anywhere;
 }
 
 .contact-card a,
 .contact-card p {
   color: #d9ecff;
+  overflow-wrap: anywhere;
 }
 
 .contact-form {
@@ -523,11 +567,11 @@ a {
 /* WHATSAPP */
 .whatsapp-float {
   position: fixed;
-  right: 16px;
-  bottom: 16px;
+  right: 12px;
+  bottom: 12px;
   z-index: 1200;
-  min-height: 52px;
-  padding: 0 18px;
+  min-height: 46px;
+  padding: 0 14px;
   border-radius: 999px;
   display: inline-flex;
   align-items: center;
@@ -535,7 +579,8 @@ a {
   background: linear-gradient(135deg, #25d366, #15a851);
   color: #ffffff;
   font-weight: 800;
-  box-shadow: 0 16px 35px rgba(37, 211, 102, 0.28);
+  font-size: 0.92rem;
+  box-shadow: 0 16px 35px rgba(37, 211, 102, 0.26);
 }
 
 /* FOOTER */
@@ -590,21 +635,15 @@ a {
 /* MOBILE */
 @media (max-width: 768px) {
   .container {
-    width: min(94%, var(--container));
-  }
-
-  .site-header {
-    position: sticky;
-    top: 0;
+    width: calc(100% - 28px);
   }
 
   .nav {
-    min-height: 72px;
+    min-height: 68px;
   }
 
-  .brand-logo {
-    height: 36px;
-    max-width: 140px;
+  .text-brand {
+    font-size: 1.04rem;
   }
 
   .menu-toggle {
@@ -613,7 +652,7 @@ a {
 
   .nav-links {
     position: absolute;
-    top: 72px;
+    top: 68px;
     left: 0;
     right: 0;
     background: rgba(7, 16, 29, 0.98);
@@ -621,7 +660,7 @@ a {
     display: none;
     flex-direction: column;
     align-items: stretch;
-    padding: 14px 4%;
+    padding: 14px;
     gap: 10px;
   }
 
@@ -645,18 +684,25 @@ a {
   }
 
   .hero {
-    padding-top: 46px;
-    padding-bottom: 54px;
+    padding: 42px 0 52px;
   }
 
   .hero-text h1 {
-    font-size: 2.2rem;
-    line-height: 1.05;
-    letter-spacing: -1px;
+    font-size: 2rem;
+    line-height: 1.04;
+    letter-spacing: -0.8px;
   }
 
   .hero-description {
     font-size: 1rem;
+  }
+
+  .eyebrow {
+    display: flex;
+    width: 100%;
+    font-size: 0.94rem;
+    border-radius: 18px;
+    padding: 10px 14px;
   }
 
   .hero-buttons,
@@ -666,8 +712,10 @@ a {
   }
 
   .btn,
+  .btn-secondary,
   .btn-nav {
     width: 100%;
+    max-width: 100%;
   }
 
   .hero-points {
@@ -675,9 +723,14 @@ a {
     gap: 12px;
   }
 
-  .hero-card-box {
+  .hero-card-box,
+  .cta-box,
+  .contact-form,
+  .service-card,
+  .reason-box,
+  .contact-card {
     padding: 20px;
-    border-radius: 22px;
+    border-radius: 20px;
   }
 
   .hero-logo {
@@ -685,11 +738,10 @@ a {
     margin-bottom: 18px;
   }
 
-  .hero-mini-stats div {
-    padding: 14px 16px;
-  }
-
-  .trust-grid {
+  .trust-grid,
+  .services-grid,
+  .reasons-grid,
+  .contact-grid {
     grid-template-columns: 1fr;
   }
 
@@ -697,65 +749,18 @@ a {
     padding: 14px;
   }
 
-  .services-grid {
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-
-  .service-card {
-    padding: 22px;
-    border-radius: 20px;
-  }
-
   .service-card h3 {
-    font-size: 1.9rem;
-    line-height: 1.15;
+    font-size: 1.16rem;
   }
 
-  .service-card p {
-    font-size: 1.1rem;
-  }
-
-  .section-heading {
-    margin-bottom: 34px;
-  }
-
-  .section-heading h2 {
-    font-size: 2.2rem;
+  .section-heading h2,
+  .contact-info h2 {
+    font-size: 2rem;
     line-height: 1.08;
   }
 
-  .section-heading p {
-    font-size: 1rem;
-  }
-
-  .reason-box {
-    padding: 22px;
-  }
-
-  .cta-box {
-    padding: 24px;
-    border-radius: 22px;
-  }
-
-  .contact-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .contact-form {
-    padding: 22px;
-  }
-
-  .contact-card {
-    padding: 18px;
-  }
-
-  .whatsapp-float {
-    right: 12px;
-    bottom: 12px;
-    min-height: 48px;
+  .faq-item {
     padding: 0 16px;
-    font-size: 0.95rem;
   }
 
   .footer-grid {
@@ -767,51 +772,44 @@ a {
 /* SMALL MOBILE */
 @media (max-width: 480px) {
   .container {
-    width: min(95%, var(--container));
+    width: calc(100% - 22px);
   }
 
   .nav {
-    min-height: 68px;
+    min-height: 64px;
   }
 
-  .brand-logo {
-    height: 30px;
-    max-width: 110px;
+  .text-brand {
+    font-size: 0.98rem;
   }
 
   .nav-links {
-    top: 68px;
-    padding: 12px 3.5%;
+    top: 64px;
+    padding: 12px;
   }
 
   .hero {
-    padding-top: 38px;
+    padding-top: 34px;
   }
 
   .hero-text h1 {
-    font-size: 1.95rem;
+    font-size: 1.82rem;
   }
 
-  .section-heading h2 {
-    font-size: 1.95rem;
+  .section-heading h2,
+  .contact-info h2 {
+    font-size: 1.82rem;
   }
 
-  .service-card h3 {
-    font-size: 1.7rem;
-  }
-
-  .hero-card-box,
-  .service-card,
-  .reason-box,
-  .contact-form,
-  .contact-card,
-  .cta-box {
-    padding: 18px;
+  .eyebrow,
+  .section-tag {
+    font-size: 0.88rem;
+    padding: 9px 12px;
   }
 
   .whatsapp-float {
-    min-height: 46px;
-    padding: 0 14px;
-    font-size: 0.9rem;
+    font-size: 0.86rem;
+    min-height: 44px;
+    padding: 0 12px;
   }
 }
