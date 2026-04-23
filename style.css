@@ -636,3 +636,150 @@ a {
     text-align: center;
   }
 }
+html, body {
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 100%;
+}
+
+.container,
+.hero,
+.hero-grid,
+.hero-text,
+.hero-card,
+.hero-card-box,
+.section,
+.section-heading,
+.trust-grid,
+.services-grid,
+.reasons-grid,
+.contact-grid,
+.cta-box,
+.faq-list,
+.site-header,
+.nav,
+.nav-links {
+  max-width: 100%;
+}
+
+.eyebrow,
+.section-tag,
+.hero-description,
+.hero-text h1,
+.hero-text p,
+.nav-links a,
+.cta-text h2,
+.cta-text p,
+.contact-info p,
+.faq-item summary,
+.faq-item p,
+.service-card h3,
+.service-card p,
+.reason-box h3,
+.reason-box p {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.eyebrow {
+  display: inline-flex;
+  width: 100%;
+  max-width: 100%;
+  white-space: normal;
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: calc(100% - 32px);
+    margin: 0 auto;
+  }
+
+  .hero-grid,
+  .services-grid,
+  .reasons-grid,
+  .contact-grid,
+  .trust-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .hero-text,
+  .hero-card,
+  .hero-card-box,
+  .service-card,
+  .reason-box,
+  .contact-form,
+  .contact-card,
+  .cta-box,
+  .faq-item {
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero-text h1 {
+    font-size: 1.95rem;
+    line-height: 1.05;
+    letter-spacing: -0.8px;
+  }
+
+  .hero-description,
+  .service-card p,
+  .reason-box p,
+  .contact-info p,
+  .faq-item p {
+    font-size: 1rem;
+  }
+
+  .eyebrow {
+    font-size: 0.95rem;
+    padding: 10px 14px;
+    border-radius: 18px;
+  }
+
+  .site-header {
+    overflow: hidden;
+  }
+
+  .nav {
+    min-height: 68px;
+  }
+
+  .text-brand {
+    font-size: 1.05rem;
+    white-space: nowrap;
+  }
+
+  .menu-toggle {
+    margin-left: 12px;
+  }
+
+  .hero-buttons,
+  .cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .btn,
+  .btn-secondary,
+  .btn-nav {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .whatsapp-float {
+    right: 10px;
+    bottom: 10px;
+    font-size: 0.9rem;
+    padding: 0 14px;
+    min-height: 46px;
+  }
+}
