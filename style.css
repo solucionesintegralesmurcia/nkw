@@ -1010,3 +1010,43 @@ img {
     margin-bottom: 18px;
   }
 }
+/* BOTÓN SUBIR ARRIBA */
+#scrollTopBtn {
+  position: fixed;
+  right: 12px;
+  bottom: 70px; /* encima del WhatsApp */
+  z-index: 1200;
+
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+
+  border: none;
+  cursor: pointer;
+
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s ease;
+}
+
+/* cuando aparece */
+#scrollTopBtn.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* hover */
+#scrollTopBtn:hover {
+  transform: translateY(-3px);
+}
